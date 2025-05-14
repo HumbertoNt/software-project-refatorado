@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Usuários</title>
+</head>
+<body>
+  <h1>Usuários Cadastrados</h1>
+
+  {% if usuarios %}
+    <ul>
+      {% for usuario in usuarios %}
+        <li>
+          <p><strong>Nome:</strong> {{ usuario.nome }}</p>
+          <p><strong>Email:</strong> {{ usuario.email }}</p>
+          <p><strong>CPF:</strong> {{ usuario.cpf }}</p>
+          <p><strong>Status:</strong> {{ usuario.status }}</p>
+          <p><strong>Administrador:</strong> {{ usuario.usuario_adm|yesno:"Sim,Não" }}</p>
+          <p><strong>Comum:</strong> {{ usuario.usuario_comum|yesno:"Sim,Não" }}</p>
+        </li>
+        <hr>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum usuário encontrado.</p>
+  {% endif %}
+</body>
+</html>

@@ -10,6 +10,9 @@ from gerenciamentoLivro.models import Livro, StatusLivro
 from gerenciamentoUsuario.models import CadastroUsuario, StatusUsuario
 from abc import ABC, abstractmethod
 
+usuario = CadastroUsuario.objects.get(id=4)
+usuario.delete()
+
 class Usuario(ABC):
     @abstractmethod
     def cadastrar(self, nome, email, cpf, status):
